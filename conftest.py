@@ -13,3 +13,18 @@ def global_config():
 @pytest.fixture
 def test_user():
     return {"name": "admin", "password": "123456"}
+
+
+
+import requests
+
+@pytest.fixture(scope="session")
+def base_url():
+    return "https://jsonplaceholder.typicode.com"
+
+@pytest.fixture
+def api_client(base_url):
+    def _request(method, endpoint, **kwargs):
+        url = f"{base_url}{endpoint}"
+        return requests.request(method, url, **kwargs)
+    return _request
