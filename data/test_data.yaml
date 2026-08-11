@@ -1,0 +1,9 @@
+get_posts:
+  - 1
+  - 2
+
+create_posts:
+  - title: "YAML数据驱动1"
+    body: "这是来自YAML的body"
+  - title: "YAML数据驱动2"
+    body: "这是来自YAML的第二条body"
