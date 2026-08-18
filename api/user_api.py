@@ -1,12 +1,14 @@
 from api.base_api import BaseAPI
 
 class UserAPI(BaseAPI):
+    def __init__(self):
+        super().__init__()
+        self.base_url = "https://dummyjson.com"
+
     def login(self, username, password):
-        # 利用 /posts 接口模拟登录，它将回显你提交的数据
-        endpoint = "/posts"
+        endpoint = "/auth/login"
         payload = {
-            "title": username,    # 用 title 存用户名
-            "body": password,     # 用 body 存密码
-            "userId": 1
+            "username": username,
+            "password": password
         }
         return self.post(endpoint, json=payload)
